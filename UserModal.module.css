@@ -1,0 +1,111 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+.modal {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+  width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto;
+  position: relative; animation: slideUp 0.25s ease;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+}
+@keyframes slideUp { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:none } }
+
+.closeBtn {
+  position: absolute; top: 16px; right: 16px; z-index: 10;
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+  color: var(--text-muted); width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center; transition: all 0.15s;
+}
+.closeBtn:hover { color: var(--text); border-color: var(--border2); }
+
+.modalHeader {
+  display: flex; align-items: center; gap: 16px;
+  padding: 28px 28px 20px; border-bottom: 1px solid var(--border);
+}
+.avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.avatarFallback {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 700; font-size: 28px;
+}
+.modalName { font-size: 20px; font-weight: 700; color: var(--text); }
+.modalBadges { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; text-transform: capitalize;
+}
+.modalDept { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+
+/* Admin actions */
+.adminActions {
+  display: flex; gap: 8px; padding: 16px 28px; border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.approveBtn {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.35);
+  border-radius: 8px; color: #10b981; padding: 8px 16px; font-size: 13px; font-weight: 600; transition: all 0.15s;
+}
+.approveBtn:hover { background: rgba(16,185,129,0.2); }
+.rejectBtn {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.35);
+  border-radius: 8px; color: #f59e0b; padding: 8px 16px; font-size: 13px; font-weight: 600; transition: all 0.15s;
+}
+.rejectBtn:hover { background: rgba(245,158,11,0.2); }
+.deleteBtn {
+  display: flex; align-items: center; gap: 6px; margin-left: auto;
+  background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3);
+  border-radius: 8px; color: #f43f5e; padding: 8px 16px; font-size: 13px; font-weight: 600; transition: all 0.15s;
+}
+.deleteBtn:hover { background: rgba(244,63,94,0.18); }
+
+.modalBody { padding: 24px 28px; display: flex; flex-direction: column; gap: 24px; }
+.sectionTitle { font-size: 12px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+
+.infoGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.infoItem { display: flex; align-items: flex-start; gap: 10px; }
+.infoIcon { color: var(--text-dim); margin-top: 1px; flex-shrink: 0; }
+.infoLabel { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.infoValue { font-size: 13px; color: var(--text); font-weight: 500; margin-top: 2px; word-break: break-all; }
+
+.bioText { font-size: 14px; color: var(--text-muted); line-height: 1.65; }
+
+.socialLinks { display: flex; flex-direction: column; gap: 8px; }
+.socialLink {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--text); text-decoration: none; transition: border-color 0.15s;
+}
+.socialLink:hover { border-color: var(--border2); }
+.socialUrl { font-size: 12px; color: var(--text-dim); font-weight: 400; margin-left: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px; }
+
+.certList { display: flex; flex-direction: column; gap: 8px; }
+.certItem {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 10px;
+  background: var(--surface2); border: 1px solid var(--border);
+}
+.certIcon { width: 34px; height: 34px; border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.certName { flex: 1; font-size: 13px; color: var(--text); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.certActions { display: flex; gap: 4px; }
+.certBtn {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: none; border: 1px solid var(--border); color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; transition: all 0.15s;
+}
+.certBtn:hover { border-color: var(--indigo); color: var(--indigo-light); }
+.empty { font-size: 13px; color: var(--text-dim); }
+
+@media (max-width: 480px) {
+  .infoGrid { grid-template-columns: 1fr; }
+  .modal { border-radius: 16px; }
+  .modalHeader, .adminActions, .modalBody { padding-left: 20px; padding-right: 20px; }
+}
